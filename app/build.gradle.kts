@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobile_calc"
+    namespace = "com.olgarhythm.mobilecalc"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.mobile_calc"
+        applicationId = "com.olgarhythm.mobilecalc"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

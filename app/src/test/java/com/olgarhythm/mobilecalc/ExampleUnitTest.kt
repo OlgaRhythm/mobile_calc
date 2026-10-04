@@ -1,4 +1,4 @@
-package com.example.mobile_calc
+package com.olgarhythm.mobilecalc
 
 import org.junit.Test
 

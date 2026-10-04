@@ -1,10 +1,10 @@
-package com.example.mobile_calc
+package com.olgarhythm.mobilecalc
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.mobile_calc.ui.CalculatorScreen
-import com.example.mobile_calc.ui.theme.MobileCalcTheme
+import com.olgarhythm.mobilecalc.ui.CalculatorScreen
+import com.olgarhythm.mobilecalc.ui.theme.MobileCalcTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

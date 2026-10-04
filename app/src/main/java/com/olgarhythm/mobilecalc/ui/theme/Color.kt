@@ -1,4 +1,4 @@
-package com.example.mobile_calc.ui.theme
+package com.olgarhythm.mobilecalc.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

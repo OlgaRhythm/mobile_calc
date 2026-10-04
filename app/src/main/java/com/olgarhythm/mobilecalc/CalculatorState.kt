@@ -1,4 +1,4 @@
-package com.example.mobile_calc
+package com.olgarhythm.mobilecalc
 
 import android.os.Parcelable
 import java.util.Locale
