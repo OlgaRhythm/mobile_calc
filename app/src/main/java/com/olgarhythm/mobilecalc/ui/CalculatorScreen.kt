@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -51,15 +52,17 @@ fun CalculatorScreen() {
                 .padding(16.dp),
             verticalArrangement = Arrangement.Bottom
         ) {
-            Text(
-                text = displayText,
-                fontSize = 48.sp,
-                textAlign = TextAlign.End,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 24.dp)
-                    .testTag("result")
-            )
+            SelectionContainer {
+                Text(
+                    text = displayText,
+                    fontSize = 48.sp,
+                    textAlign = TextAlign.End,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 24.dp)
+                        .testTag("result")
+                )
+            }
 
             Spacer(modifier = Modifier.height(8.dp))
 
