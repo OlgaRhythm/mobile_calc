@@ -1,0 +1,14 @@
+*.iml
+.gradle/
+/local.properties
+.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+
+# личные файлы, не относящиеся к коду проекта
+/tz.txt
+/Транскрипция Моб Техн 1(M4205,M4206) (Лек) 1 Basics.txt
