@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -49,8 +50,7 @@ fun CalculatorScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.Bottom
+                .padding(16.dp)
         ) {
             SelectionContainer {
                 Text(
@@ -66,7 +66,7 @@ fun CalculatorScreen() {
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            CalculatorButtonRow {
+            CalculatorButtonRow(Modifier.weight(1f)) {
                 CalculatorButton(stringResource(R.string.button_clear_all), Modifier.weight(1f)) {
                     state = state.onClearAll()
                 }
@@ -78,7 +78,7 @@ fun CalculatorScreen() {
                     state = state.onOperator(Operator.DIV)
                 }
             }
-            CalculatorButtonRow {
+            CalculatorButtonRow(Modifier.weight(1f)) {
                 CalculatorButton("7", Modifier.weight(1f)) { state = state.onDigit('7') }
                 CalculatorButton("8", Modifier.weight(1f)) { state = state.onDigit('8') }
                 CalculatorButton("9", Modifier.weight(1f)) { state = state.onDigit('9') }
@@ -86,7 +86,7 @@ fun CalculatorScreen() {
                     state = state.onOperator(Operator.MUL)
                 }
             }
-            CalculatorButtonRow {
+            CalculatorButtonRow(Modifier.weight(1f)) {
                 CalculatorButton("4", Modifier.weight(1f)) { state = state.onDigit('4') }
                 CalculatorButton("5", Modifier.weight(1f)) { state = state.onDigit('5') }
                 CalculatorButton("6", Modifier.weight(1f)) { state = state.onDigit('6') }
@@ -94,7 +94,7 @@ fun CalculatorScreen() {
                     state = state.onOperator(Operator.SUB)
                 }
             }
-            CalculatorButtonRow {
+            CalculatorButtonRow(Modifier.weight(1f)) {
                 CalculatorButton("1", Modifier.weight(1f)) { state = state.onDigit('1') }
                 CalculatorButton("2", Modifier.weight(1f)) { state = state.onDigit('2') }
                 CalculatorButton("3", Modifier.weight(1f)) { state = state.onDigit('3') }
@@ -102,7 +102,7 @@ fun CalculatorScreen() {
                     state = state.onOperator(Operator.ADD)
                 }
             }
-            CalculatorButtonRow {
+            CalculatorButtonRow(Modifier.weight(1f)) {
                 Spacer(modifier = Modifier.weight(1f))
                 CalculatorButton("0", Modifier.weight(1f)) { state = state.onDigit('0') }
                 CalculatorButton(stringResource(R.string.button_decimal_point), Modifier.weight(1f)) {
@@ -117,9 +117,9 @@ fun CalculatorScreen() {
 }
 
 @Composable
-private fun CalculatorButtonRow(content: @Composable RowScope.() -> Unit) {
+private fun CalculatorButtonRow(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         content = content
     )
@@ -130,7 +130,7 @@ private fun CalculatorButton(label: String, modifier: Modifier = Modifier, onCli
     Button(
         onClick = onClick,
         modifier = modifier
-            .height(64.dp)
+            .fillMaxHeight()
             .padding(2.dp)
     ) {
         Text(text = label, fontSize = 20.sp)
