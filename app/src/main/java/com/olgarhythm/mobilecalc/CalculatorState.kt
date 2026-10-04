@@ -40,6 +40,18 @@ data class CalculatorState(
 
     fun onOperator(newOperator: Operator): CalculatorState {
         if (isError) return this
+
+        if (newOperator == Operator.SUB && (startNewNumber || currentNumber == "-")) {
+            return if (currentNumber == "-") {
+                copy(
+                    currentNumber = if (operator != null) formatNumber(previousNumber ?: 0.0) else "0",
+                    startNewNumber = true
+                )
+            } else {
+                copy(currentNumber = "-", startNewNumber = false)
+            }
+        }
+
         val current = currentNumber.toDoubleOrNull()
 
         val result = if (operator != null && current != null && !startNewNumber) {
